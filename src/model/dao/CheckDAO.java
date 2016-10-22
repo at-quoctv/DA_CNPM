@@ -175,7 +175,7 @@ public class CheckDAO extends BaseDAO {
 
 	public ArrayList<Tindang> getTindang() {
 		ArrayList<Tindang> arrTD = new ArrayList<Tindang>();
-		String sql = "select * from DANGTIN where DANGTIN.trangthai= false";
+		String sql = "select * from dbo.vtinchuadang";
 
 		try {
 			getConnection();
@@ -183,17 +183,15 @@ public class CheckDAO extends BaseDAO {
 			while (rs.next()) {
 				Tindang td = new Tindang();
 				td.setMa(rs.getString(1));
-				td.setChuyenmuc(rs.getString(2));
-				td.setVung(rs.getString(3));
-				td.setBanla(rs.getString(4));
-				td.setBandangtin(rs.getString(5));
-				td.setTieuderao(rs.getString(6));
-				
-				td.setNoidung(rs.getString(7));
-				td.setDienthoai(rs.getString(8));
+				td.setTenthanhvien(rs.getString(2));
+				td.setChuyenmuc(rs.getString(3));
+				td.setVung(rs.getString(4));
+				td.setDienthoai(rs.getString(5));
+				td.setBandangtin(rs.getString(6));
+				td.setTieuderao(rs.getString(7));
+				td.setNoidung(rs.getString(8));
 				td.setGiatien(rs.getString(9));
-				td.setTrangthai(rs.getBoolean(10));
-				td.setTenthanhvien(rs.getString(11));
+				td.setTrangthai(false);
 				arrTD.add(td);
 			}
 			closeConnection();
@@ -217,7 +215,7 @@ public class CheckDAO extends BaseDAO {
 				+ tindang.getVung()
 				+ "'"
 				+ ",'"
-				+ tindang.getBanla()
+		//		+ tindang.getBanla()
 				+ "'"
 				+ ",'"
 				+ tindang.getBandangtin() 
@@ -244,10 +242,14 @@ public class CheckDAO extends BaseDAO {
 		return isExcute(sql);
 	}
 
-	public boolean isduyettin(String idtin) {
-		boolean b=true;
-		int id = Integer.parseInt(idtin);
-			String sql = "update DANGTIN set DANGTIN.trangthai="+b +" where DANGTIN.matindang="+ id+"";
+	public boolean isduyettin(String idtin,String key) {
+		int b = -1;
+		if ("1".equals(key))
+		 b=0;
+		else if("0".equals(key)||"".equals(key))
+			 b=1;
+		//int id = Integer.parseInt(idtin);
+			String sql = "update tindang set tindang.trangthai="+b +" where tindang.id_tindang="+ idtin+"";
 			System.out.println(sql);
 			return isExcute(sql);
 	}
@@ -255,32 +257,32 @@ public class CheckDAO extends BaseDAO {
 	public boolean isxoatin(String idtin) {
 		
 		getConnection();
-		String sql = "DELETE FROM DANGTIN WHERE matindang="+"" +idtin+"";
+		String sql = "DELETE FROM tindang WHERE tindang.id_tindang="+"" +idtin+"";
 		return isExcute(sql);
 	}
 
 	public ArrayList<Tindang> getTindadang(String name) {
 		ArrayList<Tindang> arrTDD = new ArrayList<Tindang>();
-		String sql = "select * from DANGTIN where DANGTIN.trangthai= true" + " and thanhvien="+"'"+name+"'";
+		String sql = "select * from vtindadang";
 
 		try {
 			getConnection();
 			rs = st.executeQuery(sql);
 			while (rs.next()) {
 				Tindang td = new Tindang();
-				td.setMa(rs.getString(1));
-				td.setChuyenmuc(rs.getString(2));
-				td.setVung(rs.getString(3));
-				td.setBanla(rs.getString(4));
-				td.setBandangtin(rs.getString(5));
-				td.setTieuderao(rs.getString(6));
 				
-				td.setNoidung(rs.getString(7));
-				td.setDienthoai(rs.getString(8));
+				td.setMa(rs.getString(1));
+				td.setTenthanhvien(rs.getString(2));
+				td.setChuyenmuc(rs.getString(3));
+				td.setVung(rs.getString(4));
+				td.setDienthoai(rs.getString(5));
+				td.setBandangtin(rs.getString(6));
+				td.setTieuderao(rs.getString(7));
+				td.setNoidung(rs.getString(8));
 				td.setGiatien(rs.getString(9));
-				td.setTrangthai(rs.getBoolean(10));
-				td.setTenthanhvien(rs.getString(11));
+				td.setTrangthai(true);
 				arrTDD.add(td);
+				
 			}
 			closeConnection();
 			return arrTDD;

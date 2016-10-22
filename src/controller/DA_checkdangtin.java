@@ -52,7 +52,7 @@ public class DA_checkdangtin extends HttpServlet {
 		
 		tindang.setChuyenmuc(request.getParameter("chuyenmuc"));
 		tindang.setVung(request.getParameter("vung"));
-		tindang.setBanla(request.getParameter("banla"));
+		//tindang.setBanla(request.getParameter("banla"));
 		tindang.setBandangtin(request.getParameter("bdangtin"));
 		tindang.setTieuderao(request.getParameter("tieude"));
 		tindang.setNoidung(request.getParameter("noidung"));

@@ -5,7 +5,7 @@ public class Tindang {
 	String ma;
 	String chuyenmuc;
 	String vung;
-	String banla;
+
 	String bandangtin;
 	String tieuderao;
 	String noidung;
@@ -37,12 +37,7 @@ public class Tindang {
 	public void setVung(String vung) {
 		this.vung = vung;
 	}
-	public String getBanla() {
-		return banla;
-	}
-	public void setBanla(String banla) {
-		this.banla = banla;
-	}
+
 	public String getBandangtin() {
 		return bandangtin;
 	}

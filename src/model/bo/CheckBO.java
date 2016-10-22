@@ -25,8 +25,8 @@ public class CheckBO {
 	public ArrayList<Tindang> getTindang() {
 		return checDAO.getTindang();
 	}
-	public boolean isduyettin(String idtin) {
-		return checDAO.isduyettin(idtin);
+	public boolean isduyettin(String idtin,String key) {
+		return checDAO.isduyettin(idtin,key);
 	}
 	public boolean isxoatin(String idtin) {
 		return checDAO.isxoatin(idtin);

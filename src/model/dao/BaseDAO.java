@@ -1,28 +1,34 @@
 package model.dao;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
+
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
+
 import java.sql.Statement;
 
 public class BaseDAO {
 
-	Connection conn;
+	private Connection con=null;
 	Statement st;
 	ResultSet rs;
 
 	public Connection getConnection() {
 		try {
-			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-			String url = "jdbc:odbc:DA_CNPM";
-			conn = DriverManager.getConnection(url);
-			st = conn.createStatement();
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+			String url="jdbc:sqlserver://localhost\\SQL2008:1433;databaseName=da.cnpm";
+
+			con=DriverManager.getConnection(url,"sa","gago267");
+			st = con.createStatement();
 		} catch (Exception e) {
-			conn = null;
+			con = null;
 			e.printStackTrace();
 		}
-		return conn;
+		return con;
 	}
 
 	public void closeConnection() {
@@ -33,8 +39,8 @@ public class BaseDAO {
 			if (st != null) {
 				st.close();
 			}
-			if (conn != null) {
-				conn.close();
+			if (con != null) {
+				con.close();
 			}
 		} catch (Exception e) {
 

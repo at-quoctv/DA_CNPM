@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>Tin đã đăng</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
 .tt tr td {
 	padding-top: 10px;
@@ -54,7 +55,7 @@
 	
 %>
 <body>
-	<div id="main">
+	<div class="container">
 		<jsp:include page="header.jsp"></jsp:include>
 		<div class="head-link" align="center">
 				<ul>
@@ -69,25 +70,43 @@
 			<h2>Quản lí tin đã đăng</h2>
 			<form action="" method="post">
 				
-				<table width="80%"  border="1px" cellspacing="0" class="tt">
-				
+				<table class="table">
+				<thead>
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Chuyên Mục</th>
+        <th>Vùng</th>
+        <th>Số điện thoại</th>
+        <th>Nhu cầu</th>
+        <th>Tiêu đề</th>
+        <th>Nội dung</th>
+        <th>Giá</th>
+      </tr>
+    </thead>
 
 						
 					<%
 						for (int i = 0; i < arrTDD.size(); i++) {
 					%>
-					<tr>
-						<td align="center"><%=arrTDD.get(i).getTieuderao()%></td>
+					 <tbody>
+                     <tr class="success">
+				
+						<th align="center"><%=arrTDD.get(i).getMa()%></th>
 						
-							
-						<td align="center"><a
-							href="DA_suatin?id=<%=arrTDD.get(i).getMa()%>"
-							id="link">Sửa</a></td>
-							
-						<td align="center"><a
-							href="DA_xoatindadang?id=<%=arrTDD.get(i).getMa()%>"
-							id="link">Xoá</a></td>
-
+						<th align="center"><%=arrTDD.get(i).getTenthanhvien()%></th>
+						<th align="center"><%=arrTDD.get(i).getChuyenmuc()%></th>
+						
+						<th align="center"><%=arrTDD.get(i).getVung()%></th>
+						<th align="center"><%=arrTDD.get(i).getDienthoai()%></th>
+						
+						<th align="center"><%=arrTDD.get(i).getBandangtin()%></th>
+						<th align="center"><%=arrTDD.get(i).getTieuderao()%></th>
+						
+						<th align="center"><%=arrTDD.get(i).getNoidung()%></th>
+					<th align="center"><%=arrTDD.get(i).getGiatien()%></th>
+                     <th ><a href="DA_duyettin?ID=<%=arrTDD.get(i).getMa()%>&key=1" role="button" class="btn btn-success btn-large"> Lưu </a>
+                      <a href="DA_xoatin?ID=<%=arrTDD.get(i).getMa()%>&key=1" role="button" class="btn btn-danger">Xóa</a></th>
 					</tr>
 					<%
 						}

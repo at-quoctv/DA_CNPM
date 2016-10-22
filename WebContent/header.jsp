@@ -4,22 +4,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <title>Rao vat</title>
 </head>
 <body>
 	<center>
 		<div class="main" align="center">
+
 			<div class="head" align="center">
 				<div class="banner">
 					<img alt="" src="images/image1.jpg">
 				</div>
 				<h1 style="color: white;">WEBSITE RAO VẶT</h1>
+				<ul class="pager">
+
+				</ul>
+
 				<H3 style="color: white;">NHÓM 28 - 12T</H3>
+
 			</div>
-			
-			
-		
+
+
+
 		</div>
 	</center>
 </body>

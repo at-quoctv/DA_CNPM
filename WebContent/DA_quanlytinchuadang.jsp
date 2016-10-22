@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>Tin chưa đăng</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
 .tt tr td {
 	padding-top: 10px;
@@ -54,7 +55,7 @@
 	
 %>
 <body>
-	<div id="main">
+	<div class="container">
 		<jsp:include page="header.jsp"></jsp:include>
 		<div class="head-link" align="center">
 				<ul>
@@ -70,35 +71,44 @@
 			<h2>Quản lí tin đăng</h2>
 			<form action="" method="post">
 				
-				<table width="80%"  border="1px" cellspacing="0" class="tt">
+				<table class="table">
 				
-					<tr >
-						<th>Tên tiêu đề</th>
-						<th>Tên người đăng</th>
-						<td align="center" colspan="3">Chọn chức năng Duyệt - Xoá - Sửa</td>
-
-					</tr>
+								<thead>
+      <tr>
+     
+        <th>User</th>
+        <th>Chuyên Mục</th>
+        <th>Vùng</th>
+        <th>Số điện thoại</th>
+        <th>Nhu cầu</th>
+        <th>Tiêu đề</th>
+        <th>Nội dung</th>
+        <th>Giá</th>
+        <th>Chức năng</th>
+      </tr>
+    </thead>
 
 						
 					<%
 						for (int i = 0; i < arrTD.size(); i++) {
 					%>
-					<tr>
-						<td align="center"><%=arrTD.get(i).getTieuderao()%></td>
-						<td align="center"><%=arrTD.get(i).getTenthanhvien()%></td>
+					 <tr class="success">
+					
 						
+						<th align="center"><%=arrTD.get(i).getTenthanhvien()%></th>
+						<th align="center"><%=arrTD.get(i).getChuyenmuc()%></th>
 						
-						<td align="center"><a
-							href="DA_duyettin?id=<%=arrTD.get(i).getMa()%>"
-							id="link">Duyệt</a></td>
-							
-						<td align="center"><a
-							href="DA_suatin?id=<%=arrTD.get(i).getMa()%>"
-							id="link">Sửa</a></td>
-							
-						<td align="center"><a
-							href="DA_xoatin?id=<%=arrTD.get(i).getMa()%>"
-							id="link">Xoá</a></td>
+						<th align="center"><%=arrTD.get(i).getVung()%></th>
+						<th align="center"><%=arrTD.get(i).getDienthoai()%></th>
+						
+						<th align="center"><%=arrTD.get(i).getBandangtin()%></th>
+						<th align="center"><%=arrTD.get(i).getTieuderao()%></th>
+						
+						<th align="center"><%=arrTD.get(i).getNoidung()%></th>
+					<th align="center"><%=arrTD.get(i).getGiatien()%></th>
+                     <th ><a href="DA_duyettin?ID=<%=arrTD.get(i).getMa()%>&key=0" role="button" class="btn btn-success"> Duyệt </a>
+                     <a href="DA_duyettin?ID=<%=arrTD.get(i).getMa()%>&key=0" role="button" class="btn btn-info"> Sửa </a>
+                      <a href="DA_xoatin?ID=<%=arrTD.get(i).getMa()%>&key=0" role="button" class="btn btn-danger">Xóa</a></th>
 
 					</tr>
 					<%

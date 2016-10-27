@@ -40,18 +40,20 @@ public class DA_duyettin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String idtin = request.getParameter("id");
+		String idtin = request.getParameter("ID");
+		String key=request.getParameter("key");
 		CheckBO checkBO = new CheckBO();
-		
-		if(checkBO.isduyettin(idtin)){
-
-			ArrayList<Tindang> arrTD = new ArrayList<Tindang>();
-			arrTD = checkBO.getTindang();
-			request.setAttribute("arrTD", arrTD);
-			RequestDispatcher rd = request.getRequestDispatcher("DA_quanlytinchuadang.jsp");
+		if("1".equals(key)){
+		if(checkBO.isduyettin(idtin,key)){
+System.out.println("ád");
+			ArrayList<Tindang> arrTDD = new ArrayList<Tindang>();
+			arrTDD = checkBO.getTindadang((String)request.getAttribute("userName"));
+			request.setAttribute("arrTDD", arrTDD);
+			RequestDispatcher rd = request.getRequestDispatcher("DA_quanlytindadang.jsp");
 			rd.forward(request, response);
-		}
-		else{
+		}}
+		else if("0".equals(key)||"".equals(key))
+			if(checkBO.isduyettin(idtin,key)){
 			ArrayList<Tindang> arrTD = new ArrayList<Tindang>();
 			arrTD = checkBO.getTindang();
 			request.setAttribute("arrTD", arrTD);

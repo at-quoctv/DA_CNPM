@@ -47,6 +47,7 @@ public class DA_checktrangcanhan extends HttpServlet {
 		String thaydoimatkhau = request.getParameter("thaydoimatkhau");
 		String quanlytindang = request.getParameter("quanlytindang");
 		String dangtin = request.getParameter("dangtin");
+		String tinchuadang = request.getParameter("quanlytinchuadang");
 		
 				
 		if(null!=chucnangqtv)
@@ -84,6 +85,7 @@ public class DA_checktrangcanhan extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("DA_quanlytindadang.jsp");
 			rd.forward(request, response);
 		}
+		
 		else if(null != dangtin)
 		{
 			response.sendRedirect("DA_dangtin.jsp");

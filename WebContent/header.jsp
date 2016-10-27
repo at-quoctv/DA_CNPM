@@ -14,7 +14,7 @@
 
 			<div class="head" align="center">
 				<div class="banner">
-					<img alt="" src="images/image1.jpg">
+					
 				</div>
 				<h1 style="color: white;">WEBSITE RAO VẶT</h1>
 				<ul class="pager">

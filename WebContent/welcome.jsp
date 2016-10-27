@@ -84,8 +84,7 @@
 					<tr>
 						<td><input style="width: 300px;" type="submit" name="quanlytindang" value="Quản lí tin đã đăng"></td>
 
-					</tr>			
-							
+					</tr>					
 				</table>
 
 			</form>
